@@ -50,9 +50,9 @@ class NewQuestionsTableView: UITableView {
     func defineCellType(by indexPath: IndexPath) -> AddingQuestionCellType {
         switch indexPath.section {
         case 0:
-            return .newQuestion
+            return .userQuestion
         default:
-            return isDefaultMode && !questions.isEmpty ?  .plus : .userQuestion
+            return isDefaultMode && !questions.isEmpty ?  .plus : .newQuestion
         }
     }
     
@@ -99,6 +99,7 @@ extension NewQuestionsTableView: UITableViewDelegate, UITableViewDataSource {
     
     func userQuestionsCell(for indexPath: IndexPath, in tableView: UITableView) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: UserQuestionsCell.identifier, for: indexPath) as? UserQuestionsCell else { return UITableViewCell() }
+        print(indexPath)
         cell.configure(with: questions[indexPath.row])
         cell.delegate = self
         return cell
