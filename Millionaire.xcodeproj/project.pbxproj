@@ -48,6 +48,7 @@
 		CBF27F5E2C05D3C10053D871 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF27F5D2C05D3C10053D871 /* ResultsViewController.swift */; };
 		CBFBC7912BFC95650060C76F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFBC7902BFC95650060C76F /* Game.swift */; };
 		CBFBC7932BFCEB1F0060C76F /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFBC7922BFCEB1F0060C76F /* GameSession.swift */; };
+		CE9BF2622CEDCCBD005D74ED /* TvView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BF2612CEDCCBD005D74ED /* TvView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		CBFBC7902BFC95650060C76F /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		CBFBC7922BFCEB1F0060C76F /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
 		CBFCC7F92C54EF47008CE38B /* ToDo.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ToDo.md; sourceTree = "<group>"; };
+		CE9BF2612CEDCCBD005D74ED /* TvView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,7 +212,6 @@
 				CB3D4A852BF77D25005A2AD1 /* EndViewController.swift */,
 				CBF27F5D2C05D3C10053D871 /* ResultsViewController.swift */,
 				CB7298E82C2560B0002BCC6C /* SettingsViewController.swift */,
-				CB3D4A7B2BF4A721005A2AD1 /* Views */,
 				169B22AC2C8588A400BD2559 /* NewQuestionsViewController.swift */,
 			);
 			path = Controllers;
@@ -221,6 +222,7 @@
 			children = (
 				CB3D4A7C2BF4A7A8005A2AD1 /* MainView.swift */,
 				CB3D4A832BF5F7A3005A2AD1 /* GameView.swift */,
+				CE9BF2612CEDCCBD005D74ED /* TvView.swift */,
 				CB3D4A872BF77DA9005A2AD1 /* EndView.swift */,
 				1640DC342CBFC002009DC63A /* CollectionViews */,
 				1640DC352CBFDE1C009DC63A /* TableViews */,
@@ -265,6 +267,7 @@
 				CBF236102BF4835400A0CA55 /* AppDelegate.swift */,
 				CBF236122BF4835400A0CA55 /* SceneDelegate.swift */,
 				CB3D4A7A2BF4A70F005A2AD1 /* Controllers */,
+				CB3D4A7B2BF4A721005A2AD1 /* Views */,
 				CBE5760F2C11F666008F6B29 /* Cells */,
 				16E59D792CC61B6800FC1C9D /* Controls */,
 				CBFBC7532BFC831B0060C76F /* Game */,
@@ -373,6 +376,7 @@
 				TargetAttributes = {
 					CBF2360C2BF4835400A0CA55 = {
 						CreatedOnToolsVersion = 15.3;
+						LastSwiftMigration = 1540;
 					};
 					CBF236222BF4835600A0CA55 = {
 						CreatedOnToolsVersion = 15.3;
@@ -440,6 +444,7 @@
 				CB7298E32C256015002BCC6C /* ShuffleStrategy.swift in Sources */,
 				CBFBC7932BFCEB1F0060C76F /* GameSession.swift in Sources */,
 				11215F722CE9F25D00C4D83F /* Question.swift in Sources */,
+				CE9BF2622CEDCCBD005D74ED /* TvView.swift in Sources */,
 				16FAA1102CA09D1A00CD90D3 /* NewAnswersCollectionView.swift in Sources */,
 				CBF236152BF4835400A0CA55 /* MainViewController.swift in Sources */,
 				CBFBC7912BFC95650060C76F /* Game.swift in Sources */,
@@ -642,6 +647,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MKRHW72LY3;
@@ -659,6 +665,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sgsgsgsgsg.profile.-Millionaire.Millionaire";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -669,6 +676,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MKRHW72LY3;

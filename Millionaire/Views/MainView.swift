@@ -22,10 +22,32 @@ class MainView: UIView {
     
     private let font = Fonts.main
     
-    private lazy var mainImageView: UIImageView = {
+    private lazy var tvView: TvView = {
+        let view = TvView(questinon: nil)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var fakeButtonsStackVeiw: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.spacing = 60
+        return stackView
+    }()
+    
+    private lazy var cross: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.image = UIImage(named: "MainView")
+        view.image = UIImage(named: "Сross")
+        return view
+    }()
+    
+    private lazy var buttons: UIImageView = {
+        let view = UIImageView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.image = UIImage(named: "Buttons")
         return view
     }()
     
@@ -68,7 +90,7 @@ class MainView: UIView {
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = .systemGray
+        backgroundColor = .black
         setupView()
     }
     
@@ -79,19 +101,28 @@ class MainView: UIView {
     //MARK: - functions
     
     private func setupView() {
-        addSubview(mainImageView)
+        addSubview(tvView)
+        addSubview(fakeButtonsStackVeiw)
+        fakeButtonsStackVeiw.addArrangedSubview(cross)
+        fakeButtonsStackVeiw.addArrangedSubview(buttons)
         addSubview(buttonStackView)
         buttonStackView.addArrangedSubview(playButton)
         buttonStackView.addArrangedSubview(resultButton)
+        print("Ширина экрана: \(UIScreen.main.bounds.size.width), Высота экрана: \(UIScreen.main.bounds.size.height)")
         
         NSLayoutConstraint.activate([
             
-            mainImageView.topAnchor.constraint(equalTo: topAnchor),
-            mainImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            mainImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            mainImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            tvView.topAnchor.constraint(equalTo: topAnchor, constant: 50),
+            tvView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 340/393),
+            tvView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            tvView.heightAnchor.constraint(equalTo: tvView.widthAnchor, multiplier: 13/17),
             
-            buttonStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -26),
+            fakeButtonsStackVeiw.topAnchor.constraint(equalTo: tvView.bottomAnchor, constant: 68),
+            fakeButtonsStackVeiw.centerXAnchor.constraint(equalTo: centerXAnchor),
+            fakeButtonsStackVeiw.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 280/393),
+            fakeButtonsStackVeiw.heightAnchor.constraint(equalTo: fakeButtonsStackVeiw.widthAnchor, multiplier: 100/280),
+            
+            buttonStackView.widthAnchor.constraint(equalTo: tvView.widthAnchor),
             buttonStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             buttonStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -75),
             buttonStackView.heightAnchor.constraint(equalToConstant: 80)
