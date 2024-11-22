@@ -21,8 +21,8 @@ class GameView: UIView {
     
     private var inset: CGFloat = 28
     
-    private lazy var tvView: UIView = {
-        let view  = UIView()
+    private lazy var tvView: TvView = {
+        let view  = TvView(isCat: false)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .gameGray
         view.layer.masksToBounds = true
@@ -30,25 +30,25 @@ class GameView: UIView {
         return view
     }()
     
-    private lazy var screenView: UIView = {
-        let view  = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .gameLiteGray
-        view.layer.masksToBounds = true
-        view.layer.cornerRadius = 5
-        return view
-    }()
-    
-    private lazy var questionLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .clear
-        label.font = Fonts.main
-        label.textColor = .gameGray
-        label.textAlignment = .left
-        label.numberOfLines = 0
-        return label
-    }()
+//    private lazy var screenView: UIView = {
+//        let view  = UIView()
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        view.backgroundColor = .gameLiteGray
+//        view.layer.masksToBounds = true
+//        view.layer.cornerRadius = 5
+//        return view
+//    }()
+//    
+//    private lazy var questionLabel: UILabel = {
+//        let label = UILabel()
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.backgroundColor = .clear
+//        label.font = Fonts.main
+//        label.textColor = .gameGray
+//        label.textAlignment = .left
+//        label.numberOfLines = 0
+//        return label
+//    }()
     
     private lazy var helpStackView: UIStackView = {
         let view = UIStackView()
@@ -141,9 +141,6 @@ class GameView: UIView {
     private func setupView() {
         
         addSubview(tvView)
-        tvView.addSubview(screenView)
-        screenView.addSubview(questionLabel)
-        
         addSubview(helpStackView)
         addSubview(progressView)
         progressView.addSubview(percentView)
@@ -157,19 +154,7 @@ class GameView: UIView {
             tvView.topAnchor.constraint(equalTo: topAnchor, constant: 50),
             tvView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: inset),
             tvView.centerXAnchor.constraint(equalTo: centerXAnchor),
-//            tvView.heightAnchor.constraint(equalToConstantMul: 260),
             tvView.heightAnchor.constraint(equalTo: tvView.widthAnchor, multiplier: 13/17),
-            //imageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3),
-            
-            screenView.topAnchor.constraint(equalTo: tvView.topAnchor, constant: inset),
-            screenView.leadingAnchor.constraint(equalTo: tvView.leadingAnchor, constant: inset),
-            screenView.centerYAnchor.constraint(equalTo: tvView.centerYAnchor),
-            screenView.centerXAnchor.constraint(equalTo: tvView.centerXAnchor),
-            
-            questionLabel.topAnchor.constraint(equalTo: screenView.topAnchor, constant: 20),
-//            questionLabel.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
-            questionLabel.leadingAnchor.constraint(equalTo: screenView.leadingAnchor, constant: 20),
-            questionLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
             // MARK: - numOfQuestion
             progressView.topAnchor.constraint(equalTo: tvView.bottomAnchor, constant: inset),
@@ -202,7 +187,7 @@ class GameView: UIView {
     
     func configure() {
         guard let question = delegate?.currentQuestion else { return }
-        questionLabel.text = question.question
+        tvView.updateQuestion(question.question)
         columnCollectionView.configureAnswers(for: question)
     }
     

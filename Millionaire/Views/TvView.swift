@@ -12,7 +12,7 @@ class TvView: UIView {
     
     //MARK: - naming
     
-    var questinon: String?
+    var isCat: Bool
     
     private lazy var screenView: UIView = {
         let view = UIView()
@@ -28,10 +28,20 @@ class TvView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+    private lazy var questionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = Fonts.main
+        label.textColor = .gameGray
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        return label
+    }()
     //MARK: - init
     
-    init(questinon: String?) {
-        self.questinon = questinon
+    init(isCat: Bool) {
+        self.isCat = isCat
         super.init(frame: .zero)
         layer.masksToBounds = true
         layer.cornerRadius = 5
@@ -51,16 +61,25 @@ class TvView: UIView {
                                  screenView.centerYAnchor.constraint(equalTo: centerYAnchor),
                                  screenView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 10/13),
                                  screenView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 13/17),]
-        guard let questinon else {
-            screenView.addSubview(catImvageView)
+        guard isCat else {
+            screenView.addSubview(questionLabel)
+            
             NSLayoutConstraint.activate(screenConstraints + [
-                
-                
-                catImvageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-                catImvageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+                questionLabel.centerXAnchor.constraint(equalTo: screenView.centerXAnchor),
+                questionLabel.widthAnchor
             ])
             return
         }
-        
+        screenView.addSubview(catImvageView)
+        NSLayoutConstraint.activate(screenConstraints + [
+            
+            
+            catImvageView.centerXAnchor.constraint(equalTo: screenView.centerXAnchor),
+            catImvageView.centerYAnchor.constraint(equalTo: screenView.centerYAnchor),
+        ])
     }
+    func updateQuestion( _ question: String) {
+        questionLabel.text = question
+    }
+    
 }

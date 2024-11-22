@@ -23,7 +23,7 @@ class MainView: UIView {
     private let font = Fonts.main
     
     private lazy var tvView: TvView = {
-        let view = TvView(questinon: nil)
+        let view = TvView(isCat: true)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -108,8 +108,7 @@ class MainView: UIView {
         addSubview(buttonStackView)
         buttonStackView.addArrangedSubview(playButton)
         buttonStackView.addArrangedSubview(resultButton)
-        print("Ширина экрана: \(UIScreen.main.bounds.size.width), Высота экрана: \(UIScreen.main.bounds.size.height)")
-        
+    
         NSLayoutConstraint.activate([
             
             tvView.topAnchor.constraint(equalTo: topAnchor, constant: 50),
