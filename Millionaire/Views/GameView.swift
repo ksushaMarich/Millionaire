@@ -21,6 +21,7 @@ class GameView: UIView {
     
     private var inset: CGFloat = 28
     
+#warning("Поменяла вью экрана")
     private lazy var tvView: TvView = {
         let view  = TvView(isCat: false)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -29,26 +30,6 @@ class GameView: UIView {
         view.layer.cornerRadius = 5
         return view
     }()
-    
-//    private lazy var screenView: UIView = {
-//        let view  = UIView()
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        view.backgroundColor = .gameLiteGray
-//        view.layer.masksToBounds = true
-//        view.layer.cornerRadius = 5
-//        return view
-//    }()
-//    
-//    private lazy var questionLabel: UILabel = {
-//        let label = UILabel()
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.backgroundColor = .clear
-//        label.font = Fonts.main
-//        label.textColor = .gameGray
-//        label.textAlignment = .left
-//        label.numberOfLines = 0
-//        return label
-//    }()
     
     private lazy var helpStackView: UIStackView = {
         let view = UIStackView()

@@ -66,7 +66,8 @@ class TvView: UIView {
             
             NSLayoutConstraint.activate(screenConstraints + [
                 questionLabel.centerXAnchor.constraint(equalTo: screenView.centerXAnchor),
-                questionLabel.widthAnchor
+                questionLabel.leadingAnchor.constraint(equalTo: screenView.leadingAnchor, constant: 14),
+                questionLabel.topAnchor.constraint(equalTo: screenView.topAnchor, constant: 14),
             ])
             return
         }
